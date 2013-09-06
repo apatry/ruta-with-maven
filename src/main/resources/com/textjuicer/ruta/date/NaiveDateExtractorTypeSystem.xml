@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <name>uima.textjuicer.ruta.NaiveDateExtractorTypeSystem</name>
+    <imports>
+        <import location="../../../BasicTypeSystem.xml"/>
+    </imports>
+    <types>
+        <typeDescription>
+            <name>com.textjuicer.ruta.date.NaiveDateExtractor.Date</name>
+            <description>Type defined in com.textjuicer.ruta.date.NaiveDateExtractor</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>com.textjuicer.ruta.date.NaiveDateExtractor.DateRange</name>
+            <description>Type defined in com.textjuicer.ruta.date.NaiveDateExtractor</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>com.textjuicer.ruta.date.NaiveDateExtractor.Day</name>
+            <description>Type defined in com.textjuicer.ruta.date.NaiveDateExtractor</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>com.textjuicer.ruta.date.NaiveDateExtractor.Month</name>
+            <description>Type defined in com.textjuicer.ruta.date.NaiveDateExtractor</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>com.textjuicer.ruta.date.NaiveDateExtractor.Year</name>
+            <description>Type defined in com.textjuicer.ruta.date.NaiveDateExtractor</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+    </types>
+</typeSystemDescription>

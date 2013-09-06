@@ -1,0 +1,28 @@
+PACKAGE com.textjuicer.uima.ruta;
+
+DECLARE Date;
+DECLARE DateRange;
+DECLARE Day;
+DECLARE Month;
+DECLARE Year;
+
+// A date is a month, followed by a day, optionally an ordinal suffix and a year
+//
+// examples : "january 1st 2008", "february 28, 2010"
+W{REGEXP("(?i)(january|february|march|april|may|june|july|august|september|october|november|december)") -> MARK(Month)}
+    NUM {-> MARK(Day)}
+    W?{REGEXP("(?i)(th|st|nd|rd)")}
+    COMMA?
+    NUM{-> MARK(Year), MARK(Date, 1, 5)}
+    ;
+    
+// A date can also be specified in the MM/DD/YYYY format
+NUM{-> MARK(Month)} 
+    "/" 
+    NUM{-> MARK(Day)} 
+    "/" 
+    NUM{-> MARK(Year), MARK(Date, 1, 5)}
+    ;
+
+// A date range
+"from" Date "to" Date{-> MARK(DateRange, 1, 4)};
