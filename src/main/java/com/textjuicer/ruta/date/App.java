@@ -1,7 +1,5 @@
 package com.textjuicer.ruta.date;
 
-import java.util.Scanner;
-
 import org.apache.uima.analysis_engine.AnalysisEngine;
 import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.text.AnnotationFS;
@@ -19,32 +17,25 @@ public class App {
      */
     private static final String DATE_TYPE = "com.textjuicer.ruta.date.NaiveDateExtractor.Date";
 
+    /**
+     * Text to process.
+     */
+    private static final String TEXT =
+            "I will be out of office from September 2nd, 2013 to September 20th, 2013.\n" +
+                    "Dates like 9/2/2013 and 9/20/13 are also recognized.";
+
     public static void main(String[] args) throws Exception {
-        // create the annotation engine to annotate dates
         final AnalysisEngine engine =
                 AnalysisEngineFactory.createEngine("com.textjuicer.ruta.date.NaiveDateExtractorEngine");
-
-
-        // Process System.in line by line and print dates as they are found
         final CAS cas = engine.newCAS();
-        System.out.println("Type in your text:");
-        final Scanner input = new Scanner(System.in);
-        while (input.hasNextLine()) {
-            final String line = input.nextLine();
 
-            // run ruta on the line
-            cas.setDocumentText(line);
-            engine.process(cas);
+        cas.setDocumentText(TEXT);
+        engine.process(cas);
 
-            // print dates
-            System.out.println("Dates:");
-            for (AnnotationFS date : CasUtil.select(cas, cas.getTypeSystem().getType(DATE_TYPE))) {
-                System.out.println("  - " + date.getCoveredText());
-            }
-            System.out.println();
-
-            // clean up the cas
-            cas.reset();
+        System.out.println("Extracting date from");
+        System.out.println(TEXT);
+        for (AnnotationFS date : CasUtil.select(cas, cas.getTypeSystem().getType(DATE_TYPE))) {
+            System.out.println("Found: " + date.getCoveredText());
         }
     }
 }

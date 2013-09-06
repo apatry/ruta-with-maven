@@ -11,8 +11,7 @@ of dates are recognized:
 * October 2, 2013
 
 You can run the extractor with the command `mvn compile
-exec:java`. You will be asked to type some text from which to extract
-dates. Here is an example session:
+exec:java`. The output will look like:
 
 	mvn compile exec:java
 	[INFO] Scanning for projects...
@@ -22,17 +21,15 @@ dates. Here is an example session:
 	[INFO] ------------------------------------------------------------------------
 	[INFO] 
 	...
-	Type in your text:
-	I will be out of office from September 2nd 2013 to September 16th 2013.
-	Dates:
-	  - September 2nd 2013
-      - September 16th 2013
+	Extracting date from
+	I will be out of office from September 2nd, 2013 to September 20th, 2013.
+	Dates like 9/2/2013 and 9/20/13 are also recognized.
+	Found: September 2nd, 2013
+	Found: September 20th, 2013
+	Found: 9/2/2013
+	Found: 9/20/13
+	...
 
-	Shorter dates like 10/2/2013 and 10/16/2013 are also recognized
-	Dates:
-	  - 10/2/2013
-	  - 10/16/2013
-	[EOF]
-
-The application reads line until you type the EOF character for your
-operating system (ctrl-z for linux and ctrl-d for windows).
+You can update the `TEXT` constants in
+`src/main/java/com/textjuicer/ruta/date/App.java` and rerun `mvn
+compile exec:java` to test the system on your own text.
