@@ -3,14 +3,25 @@
 A small showcase on how to use [Ruta](http://uima.apache.org/ruta) inside a
 maven project.
 
-## Running the Extractor
+This project uses a Ruta script to annotate dates. The following type
+of dates are recognized:
 
-To run the extractor you can use the command `mvn compile
-exec:java`. You will then be asked to type some text from which the
-system will search dates. Here is an example :
+* 10/02/2013
+* October 2nd, 2013
+* October 2, 2013
+
+You can run the extractor with the command `mvn compile
+exec:java`. You will be asked to type some text from which to extract
+dates. Here is an example session:
 
 	mvn compile exec:java
-	[maven output]
+	[INFO] Scanning for projects...
+	[INFO]                                                                         
+	[INFO] ------------------------------------------------------------------------
+	[INFO] Building Naive Date Extractor 1.0.0-SNAPSHOT
+	[INFO] ------------------------------------------------------------------------
+	[INFO] 
+	...
 	Type in your text:
 	I will be out of office from September 2nd 2013 to September 16th 2013.
 	Dates:
