@@ -27,6 +27,7 @@ public class App {
 
         // Process System.in line by line and print dates as they are found
         final CAS cas = engine.newCAS();
+        System.out.println("Type in your text:");
         final Scanner input = new Scanner(System.in);
         while (input.hasNextLine()) {
             final String line = input.nextLine();
