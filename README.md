@@ -1,6 +1,7 @@
 # Naive Date Extractor using Ruta
 
-A small showcase on how to use Ruta inside a maven project.
+A small showcase on how to use [Ruta](http://ruta.apache.org) inside a
+maven project.
 
 ## Running the Extractor
 
