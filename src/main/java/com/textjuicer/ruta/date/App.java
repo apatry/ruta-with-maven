@@ -15,12 +15,12 @@ public class App {
     /**
      * UIMA type holding dates.
      */
-    private static final String DATE_TYPE = "com.textjuicer.ruta.date.NaiveDateExtractor.Date";
+    public static final String DATE_TYPE = "com.textjuicer.ruta.date.NaiveDateExtractor.Date";
 
     /**
      * Text to process.
      */
-    private static final String TEXT =
+    public static final String TEXT =
             "I will be out of office from September 2nd, 2013 to September 20th, 2013.\n" +
                     "Dates like 9/2/2013 and 9/20/13 are also recognized.";
 
